@@ -1,0 +1,127 @@
+/* Root-level design tokens for easy tweaks */
+:root {
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --border: #e6e9f0;
+  --shadow: 0 10px 30px rgba(30, 41, 59, 0.12);
+  --primary: #4f46e5;
+  --primary-strong: #4338ca;
+  --accent: #22c55e;
+  --accent-strong: #16a34a;
+  --danger: #f87171;
+  --danger-strong: #ef4444;
+  --text: #0f172a;
+  --muted: #475569;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 15% 20%, #eef2ff, transparent 25%),
+    radial-gradient(circle at 85% 30%, #dcfce7, transparent 22%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.page {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.calculator {
+  width: min(420px, 90vw);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.display {
+  background: #0f172a;
+  color: #e0f2fe;
+  padding: 22px 20px;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  text-align: right;
+  letter-spacing: 1px;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  word-break: break-all;
+}
+
+.buttons {
+  background: var(--border);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+}
+
+button {
+  border: none;
+  padding: 18px;
+  font-size: clamp(1rem, 3vw, 1.15rem);
+  background: #f8fafc;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.08s ease;
+}
+
+button:hover {
+  background: #eef2ff;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.operator {
+  background: #f5f3ff;
+  color: var(--primary-strong);
+}
+
+.operator:hover {
+  background: #ede9fe;
+}
+
+.equal {
+  background: var(--accent);
+  color: #052e16;
+  grid-column: span 2;
+}
+
+.equal:hover {
+  background: var(--accent-strong);
+}
+
+.clear {
+  background: var(--danger);
+  color: #7f1d1d;
+  grid-column: span 2;
+}
+
+.clear:hover {
+  background: var(--danger-strong);
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    width: 100%;
+  }
+
+  button {
+    padding: 16px;
+  }
+}
