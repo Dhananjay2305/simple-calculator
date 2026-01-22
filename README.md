@@ -13,4 +13,4 @@ This project implements a basic calculator with the following features:
 -  Division  
 -  Optional extended functions (if implemented): percentage, power, square root
 
-It’s easy to use and designed for learning or integration into other projects.
+It’s easy to use and designed for learning or integration into other projects.....
