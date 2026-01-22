@@ -1,43 +1,58 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simple Calculator</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="page">
-    <section class="calculator" aria-label="Basic calculator">
-      <div id="display" class="display" aria-live="polite">0</div>
-      <div class="buttons" role="grid">
-        <!-- Clear and equals span two columns each -->
-        <button class="clear" data-action="clear" role="gridcell">C</button>
-        <button class="equal" data-action="equals" role="gridcell">=</button>
 
-        <!-- Number buttons -->
-        <button data-value="7" role="gridcell">7</button>
-        <button data-value="8" role="gridcell">8</button>
-        <button data-value="9" role="gridcell">9</button>
-        <button class="operator" data-action="operator" data-value="/" role="gridcell">/</button>
-
-        <button data-value="4" role="gridcell">4</button>
-        <button data-value="5" role="gridcell">5</button>
-        <button data-value="6" role="gridcell">6</button>
-        <button class="operator" data-action="operator" data-value="*" role="gridcell">*</button>
-
-        <button data-value="1" role="gridcell">1</button>
-        <button data-value="2" role="gridcell">2</button>
-        <button data-value="3" role="gridcell">3</button>
-        <button class="operator" data-action="operator" data-value="-" role="gridcell">-</button>
-
-        <button data-value="0" role="gridcell">0</button>
-        <button data-value="." role="gridcell">.</button>
-        <button class="operator" data-action="operator" data-value="+" role="gridcell">+</button>
+  <div class="container">
+    <div class="calculator">
+      
+      <!-- Header -->
+      <div class="topbar">
+        <h2>Calculator</h2>
+        <button id="themeToggle" class="theme-btn">🌙</button>
       </div>
-    </section>
-  </main>
 
-  <script src="./script.js"></script>
+      <!-- Display -->
+      <div class="display">
+        <p id="display">0</p>
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons">
+        <button class="btn special" data-action="clear">AC</button>
+        <button class="btn special" data-action="delete">DEL</button>
+        <button class="btn special" data-action="operator" data-value="/">÷</button>
+        <button class="btn operator" data-action="operator" data-value="*">×</button>
+
+        <button class="btn" data-value="7">7</button>
+        <button class="btn" data-value="8">8</button>
+        <button class="btn" data-value="9">9</button>
+        <button class="btn operator" data-action="operator" data-value="-">−</button>
+
+        <button class="btn" data-value="4">4</button>
+        <button class="btn" data-value="5">5</button>
+        <button class="btn" data-value="6">6</button>
+        <button class="btn operator" data-action="operator" data-value="+">+</button>
+
+        <button class="btn" data-value="1">1</button>
+        <button class="btn" data-value="2">2</button>
+        <button class="btn" data-value="3">3</button>
+        <button class="btn equal" data-action="equals">=</button>
+
+        <button class="btn zero" data-value="0">0</button>
+        <button class="btn" data-value=".">.</button>
+      </div>
+    </div>
+
+    <p class="footer">Made with ❤️ by Dhananjay</p>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

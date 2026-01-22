@@ -1,5 +1,6 @@
 
 const display = document.getElementById("display");
+const themeToggle = document.getElementById("themeToggle");
 
 let current = "";
 let operator = "";
@@ -36,7 +37,6 @@ function handleEquals() {
   const result = calculate(previous, current, operator);
   updateDisplay(String(result));
 
-  // reset
   current = String(result);
   previous = "";
   operator = "";
@@ -47,6 +47,11 @@ function handleClear() {
   previous = "";
   operator = "";
   updateDisplay("0");
+}
+
+function handleDelete() {
+  current = current.slice(0, -1);
+  updateDisplay(current);
 }
 
 function calculate(a, b, op) {
@@ -61,18 +66,18 @@ function calculate(a, b, op) {
   return b;
 }
 
+// Button click
 document.querySelector(".buttons").addEventListener("click", (event) => {
   const btn = event.target;
   const value = btn.getAttribute("data-value");
   const action = btn.getAttribute("data-action");
 
-  if (!value && !action) return;
-
   if (action === "clear") return handleClear();
   if (action === "equals") return handleEquals();
+  if (action === "delete") return handleDelete();
   if (action === "operator") return handleOperator(value);
 
-  handleNumber(value);
+  if (value) handleNumber(value);
 });
 
 // Keyboard support
@@ -83,5 +88,17 @@ document.addEventListener("keydown", (event) => {
   else if (key === ".") handleNumber(".");
   else if (["+", "-", "*", "/"].includes(key)) handleOperator(key);
   else if (key === "Enter" || key === "=") handleEquals();
+  else if (key === "Backspace") handleDelete();
   else if (key === "Escape") handleClear();
+});
+
+// Theme Toggle
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+
+  if (document.body.classList.contains("light")) {
+    themeToggle.textContent = "☀️";
+  } else {
+    themeToggle.textContent = "🌙";
+  }
 });
