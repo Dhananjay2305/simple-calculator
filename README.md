@@ -1,7 +1,6 @@
 # simple-calculator
 
 A simple **Calculator application** that performs basic arithmetic operations like addition, subtraction, multiplication, and division.  
-This tool is built to demonstrate core programming concepts and can be extended with more functions.
 
 ## Overview
 
